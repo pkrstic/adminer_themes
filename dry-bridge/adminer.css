@@ -1,0 +1,691 @@
+/*
+Author Predrag Krstic
+License MIT 2020
+*/
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	--red: #f14;
+	--orange: #f93;
+	--orange-dark: #c60;
+	--yellow: #fc6;
+	--yellow-dark: #c93;
+	--green: #3c6;
+	--green-dark: #093;
+	--blue: #39e;
+	--purple: #96f;
+
+
+	--cl: hsl(0, 0%, 90%);
+	--bg: hsl(0, 0%, 10%);
+
+	--h: 210;
+	--s: 100%;
+	--l: 50%;
+	--ld: 30%;
+	--ll: 70%;
+
+	--base: hsl(var(--h), var(--s), var(--l));
+	--base-dark: hsl(var(--h), var(--s), var(--ld));
+	--base-light: hsl(var(--h), var(--s), var(--ll));
+
+	--table-border: hsl(0, 0%, 20%);
+	--table-head-cl: hsl(0, 0%, 10%);
+	--table-head-bg: var(--base-dark);
+	--table-hover: hsl(0, 0%, 30%);
+	--table-bg-odd: hsl(0, 0%, 5%);
+	--table-bg-checked: var(--base-light);
+	--table-cl-checked: hsl(0, 0%, 100%);
+
+	--button-bg: var(--base-dark);
+	--button-bg-hover: hsl(var(--h), var(--s), var(--ld));
+	--button-cl: var(--bg);
+
+	--input-bg: hsl(0, 0%, 30%);
+	--input-cl: var(--cl);
+	--input-border: hsl(0, 0%, 50%);
+
+	--footer-bg: hsl(0, 0%, 15%);
+	--footer-cl: var(--cl);
+	--footer-border: var(--base);
+
+	--tables-bg: hsl(0, 0%, 30%);
+	--tables-cl: var(--cl);
+	--tables-bg-hover: hsl(0, 0%, 40%);
+	--tables-cl-hover: var(--cl);
+	--tables-bg-active: var(--base);
+	--tables-cl-active: var(--bg);
+
+	--menu-bg: var(--base);
+	--menu-cl: var(--bg);
+	--menu-bg-active: var(--base);
+	--menu-cl-active: var(--bg);
+
+	--links-bg: var(--base);
+	--links-cl: var(--bg);
+	--links-bg-hover: var(--base-dark);
+	--links-cl-hover: var(--bg);
+
+	--pages-bg: var(--bg);
+	--pages-cl: var(--cl);
+
+	--error-bg: hsla(0, 100%, 75%, 0.5);
+	--error-cl: var(--cl);
+
+	--message-bg: hsla(240, 100%, 75%, 0.5);
+	--message-cl: var(--cl);
+
+
+	--code-char: var(--green);
+	--code-date: var(--green);
+	--code-enum: var(--green);
+	--code-binary: var(--green);
+	--code-time: var(--green);
+}
+
+body {
+	background: var(--bg);
+	color: var(--cl);
+	font: 13px/1.25 "Lucida Sans", sans-serif;
+	margin: 0;
+	width: auto;
+}
+
+a,
+a:visited {
+	color: var(--base);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--cl);
+	text-decoration: underline;
+}
+
+a.text {
+	text-decoration: none;
+}
+
+h1 {
+	background: var(--base-dark);
+	color: var(--cl);
+	border: 0;
+	font-size: 150%;
+	font-weight: bold;
+	margin: 0;
+}
+
+h2 {
+	background: var(--base-dark);
+	color: var(--cl);
+	border: 0;
+	font-size: 150%;
+	font-weight: bold;
+	margin: 0;
+}
+
+h3 {
+	font-size: 130%;
+	font-weight: bold;
+	margin: 1em 0 0;
+}
+
+form {
+	margin: 0;
+}
+
+table {
+	border: 1px solid var(--table-border);
+	border-collapse: collapse;
+	margin: 1em 20px 0 0;
+	font-size: 100%;
+	min-width: 100%;
+}
+
+th:first-child,
+td:first-child {
+	width: 1%;
+}
+
+td,
+th {
+	border: 1px solid var(--table-border);
+	padding: 3px 5px;
+}
+
+th {
+	background: var(--table-head-bg);
+	color: var(--table-head-cl);
+	text-align: left;
+}
+
+thead tr {
+	position: sticky;
+	top: 0;
+}
+
+thead th {
+	background: var(--table-head-bg);
+	color: var(--table-head-cl);
+	padding: 0.2em 0.5em;
+	text-align: center;
+}
+
+thead td,
+thead th {
+	background: var(--table-head-bg);
+	color: var(--table-head-cl);
+}
+
+thead td a,
+thead th a {
+	color: var(--cl);
+}
+
+fieldset {
+	border: 1px solid var(--table-border);
+	border-radius: 5px;
+	display: inline;
+	margin: 0.8em 0.5em 0 0;
+	min-height: 50px;
+	padding: 0.5em 0.8em;
+	vertical-align: top;
+}
+
+p {
+	margin: 8px 0;
+}
+
+img {
+	border: 0;
+	vertical-align: middle;
+}
+
+td img {
+	max-height: 200px;
+	max-width: 200px;
+}
+
+code {
+	font-family: Monaco, Consolas, monospace;
+}
+
+tbody tr:hover td,
+tbody tr:hover th {
+	background: var(--table-hover);
+}
+
+pre {
+	margin: 1em 0 0;
+	font-family: Monaco, Consolas, monospace !important;
+}
+
+input[type="image"] {
+	vertical-align: middle;
+	padding: 0;
+	border: none;
+}
+
+input[type="submit"],
+.loadmore {
+	background: var(--button-bg);
+	color: var(--button-cl);
+	border: 0;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 13px;
+	padding: 5px 10px;
+	min-width: 90px;
+	display: inline-block;
+}
+
+input[type="submit"]:hover,
+.loadmore:hover {
+	background: var(--button-bg-hover);
+	text-decoration: none;
+	color: var(--button-cl);
+}
+
+input,
+input[type="text"],
+input[type="search"],
+input[type="number"],
+input[name$="[field]"],
+input[name$="[length]"],
+select {
+	background: var(--input-bg);
+	color: var(--input-cl);
+	border: 1px solid var(--input-border);
+	border-radius: 3px;
+	font-size: 13px;
+	padding: 4px;
+}
+
+input[type="number"],
+select {
+	padding-right: 0;
+}
+
+select {
+	display: inline-block;
+	height: 25px;
+}
+
+select[name="target"] {
+	width: 216px;
+}
+
+textarea {
+	font: 13px/1.25 "Lucida Sans", sans-serif;
+}
+
+input[name$="[field]"] {
+	width: 200px;
+}
+
+input[name$="[length]"] {
+	width: 70px;
+}
+
+#menu p,
+#logins,
+#tables {
+	padding: 8px;
+}
+
+.version {
+	color: var(--cl);
+	font-size: 67%;
+}
+
+.js .hidden,
+.nojs .jsonly {
+	display: none;
+}
+
+.js .column {
+	background: var(--base);
+	margin-top: -0.3em;
+	padding: 0.3em 1ex 0.3em 0;
+	position: absolute;
+}
+
+.nowrap td,
+.nowrap th,
+td.nowrap {
+	white-space: pre;
+}
+
+.wrap td {
+	white-space: normal;
+}
+
+.error {
+	background: var(--error-bg);
+	color: var(--error-cl);
+}
+
+.error b {
+	background: var(--error-bg);
+	font-weight: 400;
+}
+
+.message {
+	background: var(--message-bg);
+	color: var(--message-cl);
+}
+
+.error,
+.message {
+	margin: 1em 20px 0 0;
+	padding: 0.5em 0.8em;
+}
+
+.char {
+	color: var(--code-char);
+}
+
+.date {
+	color: var(--code-date);
+}
+
+.enum {
+	color: var(--code-enum);
+}
+
+.binary {
+	color: var(--code-binary);
+}
+
+.odd td {
+	background: var(--table-bg-odd);
+}
+
+.js tbody .checked td,
+.js tbody .checked th {
+	background: var(--table-bg-checked) !important;
+	color: var(--table-cl-checked) !important;
+}
+
+.time {
+	color: var(--code-time);
+	font-size: 70%;
+}
+
+.function {
+	text-align: right;
+}
+
+.number {
+	text-align: right;
+}
+
+.datetime {
+	text-align: right;
+}
+
+.type {
+	min-width: 100px;
+	max-width: 150px;
+}
+
+.options select {
+	width: 170px;
+}
+
+.active {
+	font-weight: 700;
+}
+
+.sqlarea {
+	border: 1px solid var(--table-border) !important;
+	width: auto !important;
+	height: 300px !important;
+	padding: 8px !important;
+	overflow: auto;
+	resize: both;
+	display: block;
+	margin: 10px;
+	border-radius: 8px;
+}
+
+.icon {
+	height: 18px;
+	width: 18px;
+}
+
+.size {
+	width: 6ex;
+}
+
+#menu {
+	left: 0;
+	margin: 0;
+	padding: 0 0 30px;
+	position: absolute;
+	top: 30px;
+	width: 290px;
+}
+
+#menu p {
+	border-bottom: 2px solid var(--base);
+	margin: 0;
+}
+
+#dbs {
+	display: flex;
+	line-height: 25px;
+}
+
+#dbs span {
+	display: block;
+	width: 20px;
+}
+
+#dbs select {
+	display: block;
+	width: 100%;
+	margin-left: 5px;
+}
+
+#tables {
+	overflow: auto;
+	white-space: nowrap;
+}
+
+#tables li {
+	display: flex;
+	align-items: stretch;
+}
+
+#tables a {
+	background: var(--tables-bg);
+	color: var(--tables-cl);
+	padding: 4px 8px;
+	margin: 2px;
+	display: block;
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+#tables a:hover {
+	background: var(--tables-bg-hover);
+	color: var(--tables-cl-hover);
+	text-decoration: none;
+}
+
+#tables a.active {
+	background: var(--tables-bg-active);
+	color: var(--tables-cl-active);
+}
+
+#tables .select {
+	width: 60px;
+	text-align: center;
+}
+
+#tables .structure {
+	width: calc(100% - 64px);
+	text-align: left;
+}
+
+.logout {
+	margin: 0;
+	padding: 0;
+}
+
+#logout {
+	background: var(--bg);
+	color: var(--cl);
+	border: 2px solid var(--base);
+	margin: 0;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	padding: 3px 10px;
+	text-align: center;
+	border-radius: 5px;
+	display: inline-block;
+	text-decoration: none;
+}
+
+#logout:hover {
+	background: var(--base);
+	color: var(--cl);
+}
+
+#content {
+	margin: 30px 0 0 300px;
+	padding: 0;
+}
+
+#lang {
+	left: 0;
+	line-height: 1.8em;
+	padding: 0.3em 1em;
+	position: absolute;
+	top: 0;
+}
+
+#breadcrumb {
+	background: var(--bg);
+	height: 30px;
+	left: 0;
+	right: 0;
+	line-height: 30px;
+	margin: 0;
+	padding: 0 10px;
+	position: absolute;
+	top: 0;
+	white-space: nowrap;
+}
+
+#h1 {
+	color: var(--bg);
+	font-style: italic;
+	text-decoration: none;
+}
+
+#version {
+	color: var(--red);
+	font-size: 67%;
+}
+
+#schema {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	margin-left: 60px;
+	position: relative;
+}
+
+#schema .table {
+	border: 2px solid var(--base);
+	cursor: move;
+	padding: 0 2px;
+	position: absolute;
+}
+
+#schema .references {
+	position: absolute;
+}
+
+.rtl h2 {
+	margin: 0;
+}
+
+.rtl p,
+.rtl table,
+.rtl .error,
+.rtl .message {
+	margin: 1em 0 0 20px;
+}
+
+.rtl #content {
+	margin: 2em 21em 0 0;
+	padding: 10px 0 20px 20px;
+}
+
+.rtl #breadcrumb {
+	left: auto;
+	margin: 0 -18px 0 0;
+	right: 21em;
+}
+
+.rtl #lang,
+.rtl #menu {
+	left: auto;
+	right: 0;
+}
+
+#menu .links {
+	display: flex;
+	align-content: stretch;
+	flex-wrap: wrap;
+}
+
+#menu .links a {
+	background: var(--menu-bg);
+	color: var(--menu-cl);
+	width: 49%;
+	display: block;
+	padding: 5px;
+	text-align: center;
+	border-radius: 5px;
+	margin: 0.5%;
+}
+
+#menu a.active {
+	background: var(--menu-bg-active);
+	color: var(--menu-cl-active);
+}
+
+.links a {
+	background: var(--links-bg);
+	color: var(--links-cl);
+	min-width: 120px;
+	display: inline-block;
+	padding: 5px 10px;
+	text-align: center;
+	border-radius: 5px;
+	margin: 0 3px;
+}
+
+.links a:hover {
+	background: var(--links-bg-hover);
+	color: var(--links-cl-hover);
+	text-decoration: none;
+}
+
+.pages {
+	background: var(--pages-bg);
+	color: var(--pages-cl);
+	position: relative;
+	padding: 5px 10px;
+	border: none;
+	border-radius: 5px;
+	left: 0;
+}
+
+.pages a {
+	padding: 0 3px;
+}
+
+.footer {
+	position: sticky;
+	bottom: 0;
+	margin: 0;
+	border-top: 3px solid var(--footer-border);
+	border-image: none;
+}
+
+.footer > div {
+	background: var(--footer-bg);
+	padding: 10px;
+}
+
+.footer fieldset {
+	margin-top: 0;
+}
+
+@media print {
+	#lang,
+	#menu {
+		display: none;
+	}
+
+	#content {
+		margin-left: 1em;
+	}
+
+	#breadcrumb {
+		left: 1em;
+	}
+
+	.nowrap td,
+	.nowrap th,
+	td.nowrap {
+		white-space: normal;
+	}
+}

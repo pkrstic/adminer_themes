@@ -1,0 +1,675 @@
+/**
+ * @author Predrag Krstic
+ * @version 3.6.3
+ */
+
+* {
+	box-sizing: border-box
+}
+
+body {
+	background: white;
+	color: #000;
+	font: 13px/1.25 "Lucida Sans", sans-serif;
+	margin: 0;
+	width: auto;
+}
+
+a, a:visited {
+	color: dodgerblue;
+	text-decoration: none;
+}
+
+a:link:hover, a:visited:hover {
+	text-decoration: underline;
+	color: dodgerblue;
+}
+
+a.text {
+	text-decoration: none;
+}
+
+h1 {
+	background: dodgerblue;
+	color: white;
+	border: none;
+	font-size: 150%;
+	font-weight: bold;
+	margin: 0;
+}
+
+h2 {
+	background: dodgerblue;
+	color: white;
+	border: none;
+	font-size: 150%;
+	font-weight: bold;
+	margin: 0;
+}
+
+h3 {
+	font-size: 130%;
+	font-weight: bold;
+	margin: 1em 0 0;
+}
+
+form {
+	margin: 0;
+}
+
+table {
+	border: 1px solid royalblue;
+	border-collapse: collapse;
+	margin: 1em 20px 0 0;
+	font-size: 100%;
+}
+
+td, th {
+	border: 1px solid royalblue;
+	padding: 3px 5px;
+}
+
+th {
+	background: dodgerblue;
+	text-align: left;
+}
+
+thead th {
+	background: dodgerblue;
+	color: white;
+	padding: .2em .5em;
+	text-align: center;
+}
+
+thead td, thead th {
+	background: dodgerblue;
+	color: white;
+}
+
+table a, table a:visited, table a:hover {
+	color: lime !important;
+}
+
+fieldset {
+	border: 1px solid dodgerblue;
+	border-radius: 5px;
+	display: inline;
+	margin: .8em .5em 0 0;
+	min-height: 50px;
+	padding: .5em .8em;
+	vertical-align: top;
+}
+
+p {
+	margin: 8px 0;
+}
+
+img {
+	border: 0;
+	vertical-align: middle;
+}
+
+td img {
+	max-height: 200px;
+	max-width: 200px;
+}
+
+code {
+	background: #eee;
+	font-family: Monaco, Consolas, monospace;
+}
+
+tbody tr:hover td,
+tbody tr:hover th {
+	background: #ccc;
+}
+
+pre {
+	margin: 1em 0 0;
+	font-family: Monaco, Consolas, monospace !important
+}
+
+input[type=image] {
+	vertical-align: middle;
+	padding: 0;
+	border: none;
+}
+
+input[type=submit], .loadmore {
+	background: dodgerblue;
+	border: 0;
+	border-radius: 3px;
+	color: white;
+	cursor: pointer;
+	font-size: 13px;
+	padding: 5px 10px;
+	text-shadow: 0 1px 2px #000;
+	min-width: 90px;
+	display: inline-block;
+}
+
+.loadmore:hover {
+	color: white;
+}
+
+input,
+input[type=text],
+input[type=search],
+input[type=number],
+input[name$="[field]"],
+input[name$="[length]"],
+select {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	font-size: 13px;
+	padding: 4px;
+	background: #fff
+}
+
+input[type=number],
+select {
+	padding-right: 0;
+}
+
+select {
+	display: inline-block;
+	height: 25px;
+}
+
+select[name="target"] {
+	width: 216px;
+}
+
+input[type=submit]:hover {
+	background: dodgerblue;
+}
+
+textarea {
+	font: 13px/1.25 "Lucida Sans", sans-serif;
+}
+
+input[name$="[field]"] {
+	width: 200px;
+}
+
+input[name$="[length]"] {
+	width: 70px;
+}
+
+#menu p, #logins, #tables {
+	padding: 8px;
+}
+
+.version {
+	color: #99f;
+	font-size: 67%;
+}
+
+.js .hidden, .nojs .jsonly {
+	display: none;
+}
+
+.js .column {
+	background: dodgerblue;
+	margin-top: -.3em;
+	padding: .3em 1ex .3em 0;
+	position: absolute;
+
+}
+
+.nowrap td, .nowrap th, td.nowrap {
+	white-space: pre;
+}
+
+.wrap td {
+	white-space: normal;
+}
+
+.error {
+	background: #fdd;
+	color: #C00;
+}
+
+.error b {
+	color: darkred;
+	font-weight: 400;
+}
+
+.message {
+	background: #efe;
+	color: forestgreen;
+}
+
+.error, .message {
+	margin: 1em 20px 0 0;
+	padding: .5em .8em;
+}
+
+.char {
+	color: #080;
+}
+
+.date {
+	color: #808;
+}
+
+.enum {
+	color: #088;
+}
+
+.binary {
+	color: #f00;
+}
+
+.odd td {
+	background: rgba(128, 128, 128, .3);
+}
+
+.js tbody .checked td, .js tbody .checked th {
+	background: #cde;
+}
+
+.time {
+	color: silver;
+	font-size: 70%;
+}
+
+.function {
+	text-align: right;
+}
+
+.number {
+	text-align: right;
+}
+
+.datetime {
+	text-align: right;
+}
+
+.type {
+	min-width: 100px;
+	max-width: 150px;
+}
+
+.options select {
+	width: 170px;
+}
+
+.active {
+	font-weight: 700;
+}
+
+.sqlarea {
+	border: 1px solid #ccc !important;
+	width: auto !important;
+	height: 300px !important;
+	padding: 8px !important;
+	overflow: auto;
+	resize: both;
+	display: block;
+	margin: 10px;
+	border-radius: 8px;
+}
+
+.icon {
+	height: 18px;
+	width: 18px;
+}
+
+.size {
+	width: 6ex;
+}
+
+#menu {
+	left: 0;
+	margin: 0;
+	padding: 0 0 30px;
+	position: absolute;
+	top: 30px;
+	width: 290px;
+}
+
+#menu p {
+	border-bottom: 1px solid dodgerblue;
+	margin: 0;
+}
+
+#dbs {
+	display: flex;
+	line-height: 25px;
+}
+
+#dbs span {
+	display: block;
+	width: 20px;
+}
+
+#dbs select {
+	display: block;
+	width: 100%;
+	margin-left: 5px;
+}
+
+#tables {
+	overflow: auto;
+	white-space: nowrap;
+}
+
+#tables li {
+	display: flex;
+	align-items: stretch;
+}
+
+#tables a {
+	background: #eee;
+	color: dodgerblue;
+	padding: 4px 8px;
+	margin: 2px;
+	/*display: block;*/
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+#tables a:hover {
+	background: #ddd;
+	text-decoration: none;
+}
+
+#tables a.active {
+	background: forestgreen;
+	color: white;
+}
+
+#tables .select {
+	width: 60px;
+	text-align: center;
+}
+
+#tables .structure {
+	width: calc(100% - 64px);
+	text-align: left;
+}
+
+.logout {
+	margin: 0;
+	padding: 0;
+}
+
+#logout {
+	margin: 0;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	padding: 3px 10px;
+	text-align: center;
+	border-radius: 5px;
+	display: inline-block;
+	text-decoration: none;
+	border: none;
+	background: red;
+	color: white;
+}
+
+#logout:hover {
+	background: darkred;
+	color: white;
+}
+
+#content {
+	margin: 30px 0 0 300px;
+	padding: 0;
+}
+
+#lang {
+	left: 0;
+	line-height: 1.8em;
+	padding: .3em 1em;
+	position: absolute;
+	top: 0;
+}
+
+#breadcrumb {
+	background: #eee;
+	height: 30px;
+	left: 0;
+	right: 0;
+	line-height: 30px;
+	margin: 0;
+	padding: 0 10px;
+	position: absolute;
+	top: 0;
+	white-space: nowrap;
+}
+
+#h1 {
+	color: white;
+	font-style: italic;
+	text-decoration: none;
+}
+
+#version {
+	color: red;
+	font-size: 67%;
+}
+
+#schema {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	margin-left: 60px;
+	position: relative;
+}
+
+#schema .table {
+	border: 1px solid royalblue;
+	cursor: move;
+	padding: 0 2px;
+	position: absolute;
+}
+
+#schema .references {
+	position: absolute;
+}
+
+.rtl h2 {
+	margin: 0;
+}
+
+.rtl p, .rtl table, .rtl .error, .rtl .message {
+	margin: 1em 0 0 20px;
+}
+
+.rtl #content {
+	margin: 2em 21em 0 0;
+	padding: 10px 0 20px 20px;
+}
+
+.rtl #breadcrumb {
+	left: auto;
+	margin: 0 -18px 0 0;
+	right: 21em;
+}
+
+.rtl #lang, .rtl #menu {
+	left: auto;
+	right: 0;
+}
+
+#menu .links {
+	display: flex;
+	align-content: stretch;
+	flex-wrap: wrap;
+}
+
+#menu .links a {
+	width: 49%;
+	display: block;
+	padding: 5px;
+	text-align: center;
+	border-radius: 5px;
+	margin: 0.5%;
+	background: dodgerblue;
+	color: white;
+}
+
+#menu .links a:hover {
+	background: royalblue;
+}
+
+#menu a.active {
+	background: forestgreen;
+}
+
+.links a {
+	min-width: 120px;
+	display: inline-block;
+	padding: 5px 10px;
+	text-align: center;
+	border-radius: 5px;
+	margin: 0 3px;
+	background: forestgreen;
+	color: white;
+}
+
+.links a:hover {
+	text-decoration: none;
+	background: darkgreen;
+	color: white;
+}
+
+.pages {
+	position: relative;
+	padding: 5px 10px;
+	background: forestgreen;
+	border: none;
+	border-radius: 5px;
+	color: #020;
+	left: 0;
+}
+
+.pages a {
+	color: white;
+	padding: 0 3px;
+}
+
+
+.footer {
+	position: sticky;
+	bottom: 0;
+	margin: 0;
+	border-top: 20px solid #ddd;
+	border-image: linear-gradient(rgba(255, 255, 255, 0), #ddd) 100% 0;
+}
+
+.footer > div {
+	background: #ddd;
+	padding: 10px;
+}
+
+.footer fieldset {
+	margin-top: 0;
+}
+
+@media print {
+	#lang, #menu {
+		display: none;
+	}
+
+	#content {
+		margin-left: 1em;
+	}
+
+	#breadcrumb {
+		left: 1em;
+	}
+
+	.nowrap td, .nowrap th, td.nowrap {
+		white-space: normal;
+	}
+}
+
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background: #222;
+		color: white;
+	}
+
+	#breadcrumb {
+		background: #222;
+	}
+
+	#tables a {
+		background: #333;
+	}
+
+	#tables a:hover {
+		background: #444;
+	}
+
+	.footer {
+		border-top: 20px solid rgba(34, 34, 34, .7);
+		border-image: linear-gradient(rgba(34, 34, 34, 0), #333) 100% 0;
+	}
+
+	.footer > div {
+		background: #333;
+	}
+
+	code {
+		background: #333;
+	}
+
+	.jush {
+		color: white;
+	}
+
+	.jush a {
+		color: dodgerblue;
+	}
+
+	.jush-bac, .jush-php_bac, .jush-bra, .jush-mssql_bra, .jush-sqlite_quo {
+		color: orangered;
+	}
+
+	.jush-bac a:hover {
+		color: orangered;
+	}
+
+	.jush-num, .jush-clr {
+		color: lightseagreen;
+	}
+
+	tbody tr:hover td, tbody tr:hover th {
+		background: #555;
+	}
+
+	.js .checkable .checked td, .js .checkable .checked th {
+		background: #339;
+	}
+
+	input,
+	input[type=text],
+	input[type=search],
+	input[type=number],
+	input[name$="[field]"],
+	input[name$="[length]"],
+	select, textarea {
+		background: #333;
+		border-color: #444;
+		color: #fff;
+	}
+
+	.message {
+		background: #232;
+		color: #fff;
+	}
+
+	.error {
+		background: darkred;
+		color: white;
+	}
+
+	.error b {
+		color: yellow;
+	}
+}
