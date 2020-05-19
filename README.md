@@ -1,4 +1,4 @@
-# README
+# Adminer Themes
 
 ## blue15c
 
