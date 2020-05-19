@@ -3,7 +3,8 @@
 ## blue15c
 
 Light/dark theme based on your system settings, used Google as inspiration for colors.
-<img alt="blue15c Light" src="/pkrstic/adminer_themes/raw/master/images/blue15c-light.png" width=45%" /> <img alt="blue15c Dark" src="/pkrstic/adminer_themes/raw/master/images/blue15c-dark.png" width=45%" />
+![blue15c Light](/images/blue15c-light.png)
+![blue15c Dark](/images/blue15c-dark.png)
 
 ## dry-brige
 
