@@ -1,5 +1,7 @@
 # Adminer Themes
 
+Adminer is database management tool (like phpMyAdmin just better) in single file written in PHP. For more details visit [Adminer.org](https://www.adminer.org/).
+
 ## blue15c
 
 Light/dark theme based on your system settings, used Google as inspiration for colors.

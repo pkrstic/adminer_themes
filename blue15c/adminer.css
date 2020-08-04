@@ -70,7 +70,7 @@ td, th {
 }
 
 th {
-	background: dodgerblue;
+	background: rgba(65,105,255,.2);
 	text-align: left;
 }
 
@@ -201,8 +201,8 @@ input[name$="[length]"] {
 }
 
 .version {
-	color: #99f;
-	font-size: 67%;
+	color: yellowgreen;
+	font-size: 60%;
 }
 
 .js .hidden, .nojs .jsonly {
